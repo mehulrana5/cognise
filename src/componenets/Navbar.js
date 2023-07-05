@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Navbar() {
     return (
         <div>
@@ -11,10 +12,11 @@ export default function Navbar() {
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                {/*eslint-disable-next-line */}
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> 
                 </div>
             </nav>
         </div>

@@ -14,7 +14,7 @@ function App() {
   function updateStatus(newmode,newactive){
     setMode(newmode);
     setActive(newactive);
-  }
+  } 
   function updateTimeUp(newTimeUp){
     settimeup(newTimeUp);
   }
@@ -25,11 +25,10 @@ function App() {
       <div className="d-flex justify-content-evenly"> 
         <Modes updateStatus={updateStatus}/>
         <Timer mode={mode} isActive={Active} updateStatus={updateStatus} updateTimeUp={updateTimeUp}/> 
-      </div>
+      </div> 
       <Article isActive={Active}/>
       <McqScreen timeup={timeup}/>
     </div>
   );
 }
-
 export default App;
