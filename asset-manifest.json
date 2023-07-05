@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cognise/static/css/main.073c9b0a.css",
-    "main.js": "/cognise/static/js/main.16e9ad41.js",
+    "main.js": "/cognise/static/js/main.aa4b242d.js",
     "static/js/787.06b15932.chunk.js": "/cognise/static/js/787.06b15932.chunk.js",
     "index.html": "/cognise/index.html",
     "main.073c9b0a.css.map": "/cognise/static/css/main.073c9b0a.css.map",
-    "main.16e9ad41.js.map": "/cognise/static/js/main.16e9ad41.js.map",
+    "main.aa4b242d.js.map": "/cognise/static/js/main.aa4b242d.js.map",
     "787.06b15932.chunk.js.map": "/cognise/static/js/787.06b15932.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.16e9ad41.js"
+    "static/js/main.aa4b242d.js"
   ]
 }
