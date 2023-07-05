@@ -11,9 +11,10 @@ function App() {
   const [Active, setActive] = useState(0);
   const [timeup,settimeup]=useState(1);
 
-  function updateStatus(newmode,newactive){
+  function updateStatus(newmode,newactive,newTimeUp){
     setMode(newmode);
     setActive(newactive);
+    settimeup(newTimeUp);
   } 
   function updateTimeUp(newTimeUp){
     settimeup(newTimeUp);

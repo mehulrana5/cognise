@@ -4,6 +4,7 @@ export default function Modes(props) {
     const [mode, setMode] = useState('easy'); // Initialize with a default value
     const [start, setstart] = useState(0)
     const [btn, setBtn] = useState(true);
+    const [timeup,settimeup]=useState(1);
     
     function startTest() {
         try {
@@ -18,9 +19,9 @@ export default function Modes(props) {
         }
     }
     useEffect(() => {
-        props.updateStatus(mode, start);
+        props.updateStatus(mode,start,timeup);
         // eslint-disable-next-line
-    }, [mode, start]);
+    }, [mode,start,timeup]);
 
     function endTest() {
         var n = window.confirm("end test?"); // Replace `confirm` with `window.confirm`
@@ -28,6 +29,7 @@ export default function Modes(props) {
             document.querySelector('input[name="modeOptions"]:checked').checked = false;
             setBtn(true);
             setstart(0);
+            settimeup(1);
         }
     }
 
