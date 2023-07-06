@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import CogContext from '../context/CogContext';
 
 export default function Article(props) {
-    const [display, setDisplay] = useState(props.isActive ? "block" : "none");
+    const context = useContext(CogContext);
+    const [display, setDisplay] = useState(context.active ? "block" : "none");
 
     useEffect(() => {
-        if (props.isActive) {
+        if (context.active) {
             setDisplay("block");
         } else {
             setDisplay("none");
         }
-        // eslint-disable-next-line
-    }, [props.isActive]);
+    }, [context.active]);
 
     return (
         <div className='container' style={{ display: display, transition: 'ease-in-out' }}>

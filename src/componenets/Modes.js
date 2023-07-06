@@ -1,35 +1,39 @@
-import React, { useState, useEffect } from 'react';
-export default function Modes(props) {
+import React, { useState, useEffect, useContext } from 'react';
+import CogContext from '../context/CogContext';
 
-    const [mode, setMode] = useState('easy'); // Initialize with a default value
-    const [start, setstart] = useState(0)
+
+export default function Modes() {
+
     const [btn, setBtn] = useState(true);
-    const [timeup,settimeup]=useState(1);
-    
+
+    const context=useContext(CogContext);
+
+
     function startTest() {
         try {
             var n = document.querySelector('input[name="modeOptions"]:checked').value;
-            if (n === '1') setMode('easy');
-            else if (n === '2') setMode('medium');
-            else setMode('hard');
+            if (n === '1') context.setMode('easy');
+            else if (n === '2') context.setMode('medium');
+            else context.setMode('hard');
             setBtn(false);
-            setstart(1);
+            context.setActive(1);
         } catch (error) {
             alert("please select the option");
         }
     }
-    useEffect(() => {
-        props.updateStatus(mode,start,timeup);
+    useEffect(() => { 
+        context.updateStatus(context.mode,context.active,context.timeup);
         // eslint-disable-next-line
-    }, [mode,start,timeup]);
+    }, [context.mode,context.timeup,context.active]);
 
     function endTest() {
         var n = window.confirm("end test?"); // Replace `confirm` with `window.confirm`
         if (n) {
             document.querySelector('input[name="modeOptions"]:checked').checked = false;
             setBtn(true);
-            setstart(0);
-            settimeup(1);
+            context.setActive(0);
+            context.updateTimeUp(1);
+            context.setMode("easy")
         }
     }
 

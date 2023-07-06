@@ -1,88 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Mcqs from './Mcqs';
+import CogContext from '../context/CogContext';
 
-export default function McqScreen(props) {
-  const [ans, setans] = useState([-1, -1, -1, -1, -1]);
+export default function McqScreen() {
+  // const [ans, setans] = useState([-1, -1, -1, -1, -1]);
+  const [display, setDisplay] = useState("none");
+
+  const context = useContext(CogContext);
 
   // Define the MCQs as an array of objects
-  const mcqsData = [
-    {
-      question: "What is the main concern about Indian Prime Minister Narendra Modi's economic policies?",
-      options: [
-        "Their inconsistency with the country's long tradition of secularism.",
-        "Their impact on the environment.",
-        "Their failure to revitalize the nation's economy.", // Correct Answer
-        "Their focus on infrastructure development."
-      ],
-      answer: 2 // Index of the correct answer
-    },
-    {
-      question: "What does Joe Biden's invitation to Narendra Modi for a state visit signify?",
-      options: [
-        "The importance of India in U.S. strategy in Africa.",
-        "The importance of India in U.S. strategy in Asia.", // Correct Answer
-        "The strengthening of U.S.-India military ties.",
-        "The need for joint climate change initiatives."
-      ],
-      answer: 1 // Index of the correct answer
-    },
-    {
-      question: "Which model led to Narendra Modi's rise to power in 2014?",
-      options: [
-        "The Gujarat Development Model.",
-        "The Indian Economic Model.",
-        "The \"Make in India\" Model.",
-        "The \"Gujarat model.\"" // Correct Answer
-      ],
-      answer: 3 // Index of the correct answer
-    },
-    {
-      question: "What was the main goal of Modi's \"Make in India\" initiative?",
-      options: [
-        "To attract foreign investments in Indian infrastructure.",
-        "To promote India's tourism industry.",
-        "To boost manufacturing's contribution to GDP.", // Correct Answer
-        "To create a digital economy in India."
-      ],
-      answer: 2 // Index of the correct answer
-    },
-    {
-      question: "What raised doubts about the sustainability of India's economic development?",
-      options: [
-        "The lack of foreign investments.",
-        "The challenges in various economic sectors.", // Correct Answer
-        "The government's focus on social welfare programs.",
-        "The global economic recession."
-      ],
-      answer: 1 // Index of the correct answer
-    }
-  ]; 
 
   useEffect(() => {
-    if (!props.timeup) {
-      document.querySelector("#mcq-btn").click();
+    if (!context.timeup) {
+      setDisplay("");
     }
-  }, [props.timeup]);
-
-  function updateAns(newAns) {
-    setans(newAns);
-  }
+    else {
+      setDisplay("none")
+    }
+    // document.querySelector("#mcq-btn").click();
+  }, [context.timeup]);
 
   function onSubmit() {
-    console.log(ans);
     document.querySelector("#close-btn").click();
+    var c=window.confirm("confirm?");
+    if(c){
+      context.updateTimeUp(1);
+      context.setSubmit(1);
+    }
+    console.log(context.ans);
   }
-
   return (
     <div>
       <button
         type="button"
         id="mcq-btn"
-        className="btn btn-primary d-none"
+        className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        style={{ display: display }}
       >
-        mcq-btn
+        <h4>MCQS</h4>
       </button>
 
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,8 +52,7 @@ export default function McqScreen(props) {
               <button id="close-btn" type="button" className="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body text-start">
-              {/* Pass the mcqsData as a prop to Mcqs */}
-              <Mcqs mcqsData={mcqsData} updateAns={updateAns} />
+              <Mcqs/>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary" onClick={onSubmit}>

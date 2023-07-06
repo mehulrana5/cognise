@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import CogContext from '../context/CogContext';
 
-export default function Mcqs(props) {
-  const [ans, setans] = useState({});
+export default function Mcqs() {
+
+  const context=useContext(CogContext)
 
   function handelOnChange(e) {
-    setans({ ...ans, [e.target.name]: e.target.value });
+    context.setAns({ ...context.ans, [e.target.name]: e.target.value });
   }
   useEffect(() => {
-    props.updateAns(ans);
-  }, [ans]);
+    context.setAns(context.ans);
+    // eslint-disable-next-line
+  }, [context.ans]);
   
   return (
     <div>
@@ -16,7 +19,7 @@ export default function Mcqs(props) {
         <div className="container que">
           <form action="" className="container" style={{ margin: '0', width: '100%' }}>
             <div id="questions" className="list-group list-group-numbered my-2">
-              {props.mcqsData.map((mcq, index) => (
+              {context.mcqsData.map((mcq, index) => (
                 <div key={index} className="list-group-item">
                   {mcq.question}
                   <div onChange={handelOnChange}>

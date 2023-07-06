@@ -1,33 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import CogContext from '../context/CogContext';
 
-export default function Timer(props) {
-  const [time, setTime] = useState(20*60); // Initial time set to 20 minutes (in seconds)
+
+export default function Timer() {
+
+  const context=useContext(CogContext);
+
+  const [time, setTime] = useState(20 * 60); // Initial time set to 20 minutes (in seconds)
 
   useEffect(() => {
-    if (props.mode === 'easy') {
+    if (context.mode === 'easy') {
       setTime(20 * 60);
-    } else if (props.mode === 'medium') {
+    } else if (context.mode === 'medium') {
       setTime(10 * 60);
-    } else if (props.mode === 'hard') {
+    } else if (context.mode === 'hard') {
       setTime(.1 * 60);
     } else {
       setTime(0);
     }
-  }, [props.mode]);
+  }, [context.mode]);
 
   useEffect(() => {
     let interval = null;
-    if (props.isActive && time > 0) {
+    if (context.active && time > 0) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime - 1);
       }, 1000);
-    } else if (time === 0 && props.isActive) {
-        props.updateStatus("", 0);
-        props.updateTimeUp(0);
+    } else if (time === 0 && context.active) {
+      context.updateStatus("", 0);
+      context.updateTimeUp(0);
     }
     return () => clearInterval(interval);
     // eslint-disable-next-line
-  }, [props.isActive, time, props.mode]);
+  }, [context.active, time, context.mode]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
