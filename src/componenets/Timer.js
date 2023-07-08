@@ -27,8 +27,8 @@ export default function Timer() {
         setTime((prevTime) => prevTime - 1);
       }, 1000);
     } else if (time === 0 && context.active) {
-      context.updateStatus("", 0);
-      context.updateTimeUp(0);
+      context.setActive(0);
+      context.setTimeup(0);
     }
     return () => clearInterval(interval);
     // eslint-disable-next-line

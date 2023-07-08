@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import CogContext from '../context/CogContext';
 
 
@@ -21,10 +21,6 @@ export default function Modes() {
             alert("please select the option");
         }
     }
-    useEffect(() => { 
-        context.updateStatus(context.mode,context.active,context.timeup);
-        // eslint-disable-next-line
-    }, [context.mode,context.timeup,context.active]);
 
     function endTest() {
         var n = window.confirm("end test?"); // Replace `confirm` with `window.confirm`
@@ -32,8 +28,10 @@ export default function Modes() {
             document.querySelector('input[name="modeOptions"]:checked').checked = false;
             setBtn(true);
             context.setActive(0);
-            context.updateTimeUp(1);
+            context.setTimeup(1);
             context.setMode("easy")
+            context.setOptions()
+            document.querySelector("#mcq-form").reset()
         }
     }
 

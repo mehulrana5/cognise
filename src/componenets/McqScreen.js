@@ -24,10 +24,9 @@ export default function McqScreen() {
     document.querySelector("#close-btn").click();
     var c=window.confirm("confirm?");
     if(c){
-      context.updateTimeUp(1);
+      context.setTimeup(1);
       context.setSubmit(1);
     }
-    console.log(context.ans);
   }
   return (
     <div>

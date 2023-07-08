@@ -6,23 +6,9 @@ export const CogProvider = ({ children }) => {
     const [mode, setMode] = useState('easy');
     const [active, setActive] = useState(0);
     const [timeup, setTimeup] = useState(1);
-    const [ans, setAns] = useState();
     const [submit, setSubmit] = useState(0);
-
-    const updateStatus = (newMode, newActive, newTimeUp) => {
-        setMode(newMode);
-        setActive(newActive);
-        setTimeup(newTimeUp);
-    };
-
-    const updateTimeUp = (newTimeUp) => {
-        setTimeup(newTimeUp);
-    };
-
-    function updateAns(newAns) {
-        setAns(newAns);
-    }
-
+    const [options, setOptions]=useState();
+ 
     const mcqsData = [
         {
             question: "What is the main concern about Indian Prime Minister Narendra Modi's economic policies?",
@@ -77,7 +63,7 @@ export const CogProvider = ({ children }) => {
     ];
 
     return (
-        <CogContext.Provider value={{ mode, setMode, active, setActive, timeup, setTimeup, ans, setAns, updateStatus, updateTimeUp, updateAns, submit, setSubmit ,mcqsData}}>
+        <CogContext.Provider value={{ mode, setMode, active, setActive, timeup, setTimeup, submit, setSubmit, mcqsData ,options,setOptions}}>
             {children}
         </CogContext.Provider>
     );
