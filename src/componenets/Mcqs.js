@@ -26,9 +26,9 @@ export default function Mcqs() {
   
   return (
     <div>
-      <div className="container">
-        <div className="container que"> 
-          <form id="mcq-form" action="" className="container">
+      {/* <div className="container"> */}
+        <div className="que"> 
+          <form id="mcq-form" action="" className="container" style={{padding:'0'}}>
             <div id="questions" className="list-group list-group-numbered my-2">
               {context.mcqsData.map((mcq, index) => (
                 <div key={index} className="list-group-item">
@@ -52,6 +52,5 @@ export default function Mcqs() {
           </form>
         </div>
       </div>
-    </div>
   );
 }

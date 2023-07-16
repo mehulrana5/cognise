@@ -6,7 +6,7 @@ export default function Score() {
 
     return (
         <div className='container' style={{display: context.submit && context.options!=null? "" : "none" }}>
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Question number</th>

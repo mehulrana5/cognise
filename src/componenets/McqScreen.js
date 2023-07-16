@@ -13,6 +13,7 @@ export default function McqScreen() {
   useEffect(() => {
     if (!context.timeup) {
       setDisplay("");
+      document.querySelector('#mcq-btn').click()
     }
     else {
       setDisplay("none")
@@ -33,7 +34,7 @@ export default function McqScreen() {
       <button
         type="button"
         id="mcq-btn"
-        className="btn btn-primary"
+        className="btn btn-primary my-4"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         style={{ display: display }}

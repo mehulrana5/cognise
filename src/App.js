@@ -1,6 +1,5 @@
 import './App.css';
 import Article from './componenets/Article';
-import Modes from './componenets/Modes';
 import Navbar from './componenets/Navbar';
 import Timer from './componenets/Timer';
 import McqScreen from './componenets/McqScreen';
@@ -15,7 +14,6 @@ function App() {
         <div className="App">
           <Navbar />
           <div className="d-flex justify-content-evenly">
-            <Modes/>
             <Timer/>
           </div> 
           <Article/>

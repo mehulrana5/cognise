@@ -39,7 +39,7 @@ export default function Modes() {
         <div>
             <div className="d-flex flex-column my-2">
                 <div className="d-flex">
-                    <button type="button" className="btn btn-primary" onClick={startTest} disabled={!btn} style={{ width: 'fit-content', margin: 'auto' }}>Start Test</button>
+                    <button type="button" className="btn btn-primary btn-group btn-group-sm" onClick={startTest} disabled={!btn} style={{ width: 'fit-content', margin: 'auto' }}>Start Test</button>
                     <button type="button" className="btn btn-danger" onClick={endTest} disabled={btn} style={{ width: 'fit-content', margin: 'auto' }}>End Test</button>
                 </div>
                 <div className="d-flex justify-content-evenly" style={{ width: 'fit-content', margin: 'auto' }}>
