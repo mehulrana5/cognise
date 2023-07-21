@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const mcqsData = [
     {
         question: "What is the main concern about Indian Prime Minister Narendra Modi's economic policies?",
@@ -53,32 +51,19 @@ const mcqsData = [
     }
 ];
 
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/test');
-
-    console.log("connected to mongodb");
-    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
-
-    const articleSchema = new mongoose.Schema({
-        title: String,
-        article: String,
-        mcqsData: [
-            {
-                questions: String,
-                options: [String],
-                answer: Number
-            }
-        ]
-    });
-    
-    const article = mongoose.model('articles', articleSchema);
-
-    const data=new article({mcqsData})
-
-    console.log(data.mcqsData);
-    
-}
-
-main().catch(err => console.log(err));
+const mongoose=require('mongoose')
+const mongoURI="mongodb://localhost:27017"
+const connectToMongo = async () => {
+    try {
+      await mongoose.connect('mongodb://localhost:27017/myarticles', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
+      console.log('Connected to MongoDB');
+    } catch (error) {
+      console.error('Failed to connect to MongoDB', error);
+    }
+  };
+module.exports=connectToMongo ;
 
 

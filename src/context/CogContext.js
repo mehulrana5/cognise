@@ -7,10 +7,11 @@ export const CogProvider = ({ children }) => {
     const [active, setActive] = useState(0);
     const [timeup, setTimeup] = useState(1);
     const [submit, setSubmit] = useState(0);
-
     const [options, setOptions] = useState();
-
-    
+    const [canAdd,setCanAdd]=useState(0);
+    const [btn,setBtn]=useState(1);
+    const [isLoggedIn,setIsLoggedIn]=useState(1);
+    const [isAdmin,setIsAdmin]=useState(0);
 
     const article = {
         title: "Indian Economy Faces Challenges Despite Modi's Promises",
@@ -70,7 +71,7 @@ export const CogProvider = ({ children }) => {
     ];
 
     return (
-        <CogContext.Provider value={{ mode, setMode, active, setActive, timeup, setTimeup, submit, setSubmit, mcqsData, options, setOptions, article }}>
+        <CogContext.Provider value={{ mode, setMode, active, setActive, timeup, setTimeup, submit, setSubmit, mcqsData, options, setOptions, article ,canAdd,setCanAdd,btn,setBtn,isLoggedIn,setIsLoggedIn,isAdmin,setIsAdmin}}>
             {children}
         </CogContext.Provider>
     );

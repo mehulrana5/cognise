@@ -5,6 +5,7 @@ import Timer from './componenets/Timer';
 import McqScreen from './componenets/McqScreen';
 import { CogProvider } from './context/CogContext';
 import Score from './componenets/Score';
+import AddArticle from './componenets/AddArticle';
 
 function App() {
 
@@ -13,12 +14,11 @@ function App() {
       <CogProvider>
         <div className="App">
           <Navbar />
-          <div className="d-flex justify-content-evenly">
-            <Timer/>
-          </div> 
-          <Article/>
-          <McqScreen/>
-          <Score/>
+          <Timer />
+          <Article />
+          <McqScreen />
+          <Score />
+          <AddArticle />
         </div>
       </CogProvider>
     </>

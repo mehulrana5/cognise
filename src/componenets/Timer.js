@@ -25,7 +25,7 @@ export default function Timer() {
   };
   return (
     <div>
-      <div style={{position:'fixed',bottom:'10px',right:'10px',zIndex:'1'}}>
+      <div style={{position:'fixed',bottom:'10px',right:'10px',zIndex:'1',backgroundColor:'white',borderRadius:"100%"}}>
         <CountdownCircleTimer
           isPlaying={context.active}
           key={context.active}
