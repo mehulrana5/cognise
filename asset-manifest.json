@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/cognise/static/css/main.dbb3f62b.css",
-    "main.js": "/cognise/static/js/main.c5890f3d.js",
+    "main.js": "/cognise/static/js/main.92334448.js",
     "static/js/787.06b15932.chunk.js": "/cognise/static/js/787.06b15932.chunk.js",
     "static/media/cognise-logo.png": "/cognise/static/media/cognise-logo.3de6f77e911fac4443ce.png",
     "index.html": "/cognise/index.html",
     "main.dbb3f62b.css.map": "/cognise/static/css/main.dbb3f62b.css.map",
-    "main.c5890f3d.js.map": "/cognise/static/js/main.c5890f3d.js.map",
+    "main.92334448.js.map": "/cognise/static/js/main.92334448.js.map",
     "787.06b15932.chunk.js.map": "/cognise/static/js/787.06b15932.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dbb3f62b.css",
-    "static/js/main.c5890f3d.js"
+    "static/js/main.92334448.js"
   ]
 }
