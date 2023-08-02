@@ -3,8 +3,8 @@ import Modes from './Modes';
 import logo from '../logo.png';
 import { useContext } from 'react';
 import CogContext from '../context/CogContext';
-import Login_modal from './Login';
-import AddArticle from './AddArticle';
+import LoginModal from './Login';
+// import AddArticle from './AddArticle';
 import '../App.css'
 
 export default function Navbar() {
@@ -27,9 +27,9 @@ export default function Navbar() {
             document.querySelector("#mcq-form").reset()
         }
     }
-    function addArticle(){
-        context.setCanAdd(1);
-    }
+    // function addArticle(){
+    //     context.setCanAdd(1);
+    // }
     function Logout(){
         context.setIsLoggedIn(0);
     }
@@ -55,14 +55,14 @@ export default function Navbar() {
                                 <button className="btn btn-danger mx-2" onClick={endTest} disabled={context.btn}>End Test</button>
                             </li>
                             <div className="nav-item">
-                                <button type="button" class="btn btn-primary mx-2" disabled={context.isLoggedIn} data-bs-toggle="modal" data-bs-target="#Login-modal">Login</button>
+                                <button type="button" className="btn btn-primary mx-2" disabled={context.isLoggedIn} data-bs-toggle="modal" data-bs-target="#Login-modal">Login</button>
                             </div>
                             <div className="nav-item">
-                                <button type="button" class="btn btn-primary mx-2" onClick={Signin} disabled={context.isLoggedIn}>Sign in</button>
+                                <button type="button" className="btn btn-primary mx-2" onClick={Signin} disabled={context.isLoggedIn}>Sign in</button>
                             </div>
-                            <div className="nav-item">
+                            {/* <div className="nav-item">
                                 <button className='btn btn-primary mx-2' onClick={addArticle} disabled={!context.isLoggedIn && !context.isAdmin} data-bs-toggle="modal" data-bs-target="#Add-article-modal">Add article</button>
-                            </div>
+                            </div> */}
                             <div className="nav-item">
                                 <button className='btn btn-primary mx-2' onClick={Logout} disabled={!context.isLoggedIn}>Log out</button>
                             </div>
@@ -70,8 +70,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-            <Login_modal/>
-            <AddArticle/>
+            <LoginModal/>
+            {/* <AddArticle/>  */}
         </div>
     );
 }

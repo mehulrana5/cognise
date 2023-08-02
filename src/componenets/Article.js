@@ -12,14 +12,14 @@ export default function Article() {
             setDisplay("none");
         }
     }, [context.active]);
-
+    
     return (
         <div className='container' style={{ display: display, transition: 'ease-in-out' }}>
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">{context.article.title}</h5>
+                    <h5 className="card-title">{context.data.title}</h5>
                     <p style={{ textAlign: 'left' }}> 
-                        {context.article.passage}
+                        {context.data.passage} 
                     </p>
                 </div>
             </div>

@@ -5,7 +5,7 @@ export default function Mcqs() {
 
   const context = useContext(CogContext);
   
-  const len = context.mcqsData.length;
+  const len = context.data.mcqdata.length;
 
   // Create a state variable to store the answers
   const [answers, setAnswers] = useState(Array(len).fill(-1));
@@ -26,11 +26,10 @@ export default function Mcqs() {
   
   return (
     <div>
-      {/* <div className="container"> */}
         <div className="que"> 
           <form id="mcq-form" action="" className="container" style={{padding:'0'}}>
             <div id="questions" className="list-group list-group-numbered my-2">
-              {context.mcqsData.map((mcq, index) => (
+              {context.data.mcqdata.map((mcq, index) => (
                 <div key={index} className="list-group-item">
                   {mcq.question}
                   <div onChange={handleChange}>

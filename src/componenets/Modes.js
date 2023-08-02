@@ -3,10 +3,7 @@ import CogContext from '../context/CogContext';
 
 
 export default function Modes() {
-
-    
     const context = useContext(CogContext);
-
     function startTest() {
         try {
             var n = document.querySelector('input[name="modeOptions"]:checked').value;
@@ -15,11 +12,15 @@ export default function Modes() {
             else context.setMode('hard');
             context.setBtn(false);
             context.setActive(1);
+
+            context.fetchAllArticlesIds();
+            var idx=context.getRandomNumber();
+            context.fetchArticleByIndex(localStorage[`${idx}`]);
+
         } catch (error) {
             alert("please select the option");
         }
     }
-
     return (
         <div>
             <div>
